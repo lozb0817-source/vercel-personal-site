@@ -1,13 +1,16 @@
 :root {
-  --navy: #0f1645;
-  --navy-deep: #090d2b;
-  --cream: #f5efe5;
-  --paper: #fffaf2;
-  --ink: #1f2433;
-  --muted: #6b7280;
-  --accent: #a9534e;
-  --gold: #d7b77d;
-  --line: rgba(15, 22, 69, 0.16);
+  --navy: #673946;
+  --navy-deep: #4b2531;
+  --cream: #fff3ed;
+  --paper: #fff9f5;
+  --surface: #ffffff;
+  --blush: #f7ded8;
+  --sage: #8aa390;
+  --ink: #35272b;
+  --muted: #75676a;
+  --accent: #b45762;
+  --gold: #9b7052;
+  --line: rgba(103, 57, 70, 0.16);
   --max: 1120px;
 }
 
@@ -44,12 +47,17 @@ a {
   gap: 24px;
   padding: 18px clamp(20px, 4vw, 56px);
   color: #fff;
-  background: linear-gradient(180deg, rgba(9, 13, 43, 0.88), rgba(9, 13, 43, 0));
+  background: linear-gradient(180deg, rgba(75, 37, 49, 0.88), rgba(75, 37, 49, 0));
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: rgba(75, 37, 49, 0.68);
+  backdrop-filter: blur(10px);
 }
 
 .company-logo {
@@ -82,33 +90,46 @@ a {
   grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1fr);
   align-items: stretch;
   background:
-    radial-gradient(circle at 82% 20%, rgba(215, 183, 125, 0.18), transparent 32%),
-    linear-gradient(120deg, var(--navy-deep), var(--navy));
-  color: #fff;
+    radial-gradient(circle at 82% 18%, rgba(180, 87, 98, 0.18), transparent 34%),
+    linear-gradient(120deg, #fff5ef 0%, #f8e2dc 48%, #fffaf6 100%);
+  color: var(--ink);
 }
 
 .hero-photo {
   min-height: 640px;
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
-  padding: 120px 42px 0;
+  padding: 116px 42px 54px;
   background:
-    linear-gradient(180deg, rgba(15, 22, 69, 0.1), rgba(15, 22, 69, 0.58)),
-    linear-gradient(145deg, #d6c2a1, #705a50);
+    linear-gradient(180deg, rgba(103, 57, 70, 0.02), rgba(103, 57, 70, 0.26)),
+    linear-gradient(145deg, #f4d7ce, #d7aaa5);
+}
+
+.photo-stack {
+  display: grid;
+  width: min(82%, 420px);
+  justify-items: center;
+  gap: 18px;
 }
 
 .profile-photo {
-  width: min(82%, 420px);
+  width: 100%;
   aspect-ratio: 4 / 5;
   display: block;
-  margin-bottom: 0;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 0;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
   object-fit: cover;
   object-position: 50% 24%;
-  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 34px 80px rgba(103, 57, 70, 0.22);
+}
+
+.photo-title {
+  max-width: 12em;
+  margin-bottom: 0;
+  color: var(--navy-deep);
+  font-size: clamp(28px, 3vw, 44px);
+  text-align: center;
 }
 
 .hero-copy {
@@ -162,7 +183,7 @@ h3 {
 .lead {
   max-width: 520px;
   margin-bottom: 34px;
-  color: rgba(255, 255, 255, 0.88);
+  color: #604d52;
   font-size: clamp(19px, 2vw, 25px);
 }
 
@@ -194,8 +215,9 @@ h3 {
 }
 
 .button.secondary {
-  border: 1px solid rgba(255, 255, 255, 0.44);
-  color: #fff;
+  border: 1px solid rgba(103, 57, 70, 0.24);
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.48);
 }
 
 .button.secondary.dark {
@@ -205,7 +227,9 @@ h3 {
 
 .intro-band {
   padding: clamp(52px, 9vw, 96px) 24px;
-  background: var(--cream);
+  background:
+    linear-gradient(90deg, rgba(138, 163, 144, 0.12), rgba(180, 87, 98, 0.12)),
+    var(--cream);
   color: var(--navy);
   text-align: center;
 }
@@ -236,7 +260,7 @@ h3 {
 }
 
 .story {
-  color: #374151;
+  color: #55484b;
   font-size: 19px;
 }
 
@@ -249,23 +273,18 @@ h3 {
   margin-bottom: 34px;
 }
 
-.service-grid,
-.highlight-grid {
+.service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.highlight-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.service-card,
-.highlight-grid article {
+.service-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 28px;
-  background: #fff;
+  background: var(--surface);
+  box-shadow: 0 18px 42px rgba(103, 57, 70, 0.06);
 }
 
 .service-card span {
@@ -277,8 +296,7 @@ h3 {
   font-weight: 900;
 }
 
-.service-card p,
-.highlight-grid p {
+.service-card p {
   margin-bottom: 0;
   color: var(--muted);
 }
@@ -288,7 +306,8 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   margin-bottom: 18px;
-  background: #fff;
+  background: var(--surface);
+  box-shadow: 0 18px 42px rgba(103, 57, 70, 0.06);
 }
 
 .testimonial-copy {
@@ -322,12 +341,12 @@ h3 {
 
 .testimonial-marquee::before {
   left: 0;
-  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+  background: linear-gradient(90deg, var(--surface), rgba(255, 255, 255, 0));
 }
 
 .testimonial-marquee::after {
   right: 0;
-  background: linear-gradient(270deg, #fff, rgba(255, 255, 255, 0));
+  background: linear-gradient(270deg, var(--surface), rgba(255, 255, 255, 0));
 }
 
 .marquee-track {
@@ -352,20 +371,20 @@ h3 {
   width: 100%;
   aspect-ratio: 804 / 320;
   object-fit: contain;
-  border: 1px solid rgba(15, 22, 69, 0.16);
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
 }
 
 .feedback-placeholder {
   display: grid;
   aspect-ratio: 804 / 320;
   place-items: center;
-  border: 1px dashed rgba(15, 22, 69, 0.28);
+  border: 1px dashed rgba(103, 57, 70, 0.28);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(15, 22, 69, 0.08), rgba(169, 83, 78, 0.08)),
-    #fffaf2;
+    linear-gradient(135deg, rgba(138, 163, 144, 0.14), rgba(180, 87, 98, 0.12)),
+    #fff7f1;
   color: var(--navy);
   font-family: "Noto Serif TC", serif;
   font-size: 22px;
@@ -402,8 +421,8 @@ h3 {
   gap: 36px;
   padding: clamp(58px, 8vw, 92px) max(24px, calc((100vw - var(--max)) / 2));
   background:
-    linear-gradient(rgba(15, 22, 69, 0.92), rgba(15, 22, 69, 0.92)),
-    linear-gradient(135deg, #564f68, #9a6b5f);
+    linear-gradient(rgba(103, 57, 70, 0.88), rgba(103, 57, 70, 0.9)),
+    linear-gradient(135deg, #b45762, #8aa390);
   color: #fff;
 }
 
@@ -445,8 +464,8 @@ h3 {
   width: min(220px, 64vw);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 50px rgba(15, 22, 69, 0.12);
+  background: var(--surface);
+  box-shadow: 0 18px 50px rgba(103, 57, 70, 0.12);
 }
 
 @media (max-width: 840px) {
@@ -470,7 +489,15 @@ h3 {
 
   .hero-photo {
     min-height: 54vh;
-    padding: 108px 24px 0;
+    padding: 108px 24px 42px;
+  }
+
+  .photo-stack {
+    width: min(82vw, 420px);
+  }
+
+  .photo-title {
+    font-size: clamp(28px, 8vw, 36px);
   }
 
   .hero-copy {
@@ -483,7 +510,6 @@ h3 {
   }
 
   .service-grid,
-  .highlight-grid,
   .testimonial-copy {
     grid-template-columns: 1fr;
   }
