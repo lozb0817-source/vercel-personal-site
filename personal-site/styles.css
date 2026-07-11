@@ -378,7 +378,9 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   margin-bottom: 18px;
-  background: var(--surface);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(168, 87, 62, 0.08), transparent 30%),
+    linear-gradient(135deg, #f7efe2 0%, #efe4d2 56%, #f4eadb 100%);
   box-shadow: 0 18px 42px rgba(63, 74, 60, 0.07);
 }
 
@@ -413,12 +415,12 @@ h3 {
 
 .testimonial-marquee::before {
   left: 0;
-  background: linear-gradient(90deg, var(--surface), rgba(255, 255, 255, 0));
+  background: linear-gradient(90deg, #f7efe2, rgba(247, 239, 226, 0));
 }
 
 .testimonial-marquee::after {
   right: 0;
-  background: linear-gradient(270deg, var(--surface), rgba(255, 255, 255, 0));
+  background: linear-gradient(270deg, #f4eadb, rgba(244, 234, 219, 0));
 }
 
 .marquee-track {
