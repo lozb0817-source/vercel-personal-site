@@ -504,9 +504,9 @@ h3 {
 
 .gift-section {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 320px);
   align-items: center;
-  gap: 36px;
+  gap: clamp(28px, 6vw, 64px);
   padding: clamp(58px, 8vw, 92px) max(24px, calc((100vw - var(--max)) / 2));
   background:
     radial-gradient(circle at 88% 18%, rgba(125, 146, 116, 0.18), transparent 30%),
@@ -514,7 +514,7 @@ h3 {
   color: var(--navy-deep);
 }
 
-.gift-section div {
+.gift-copy {
   max-width: 720px;
 }
 
@@ -527,6 +527,23 @@ h3 {
 .gift-section .button.primary.light {
   background: var(--accent);
   color: #fff;
+}
+
+.gift-visual {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.gift-cover {
+  width: min(100%, 300px);
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow:
+    0 28px 60px rgba(63, 74, 60, 0.18),
+    0 0 0 1px rgba(63, 74, 60, 0.12);
+  transform: rotate(2deg);
 }
 
 .contact-section {
